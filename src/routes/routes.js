@@ -1,9 +1,11 @@
 const express = require('express');
 const routes = express.Router();
+import pokeService from '../services/pokeService';
 
 //metodos get
 routes.get('/pokemon', async (req, res) => {
-    
+    const pokemon = await pokeService.getPokemon();
+    res.json(pokemon);
 });
 
 routes.get('/pokemon/:id', async (req, res) => {
