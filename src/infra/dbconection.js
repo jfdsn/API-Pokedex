@@ -1,8 +1,8 @@
-import pgp from 'pg-promise';
+const pgp = require('pg-promise')();
 
 const db = pgp ({
-    user: 'admin',
-    password: '',
+    user: 'postgres',
+    password: 'juju23',
     host: 'localhost',
     port: 5432,
     database: 'pokedex' 
