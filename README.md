@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-blue"/>
 </p>
 
-Projeto desenvolvido com o intuito de por em prática e expor os conhecimentos adquiridos durante formação. Trata-se 
+Projeto desenvolvido com o intuito de pôr em prática e expor os conhecimentos adquiridos durante formação. Trata-se 
 de uma API Restful utilizando Node.js, express e PostgreSQL.
 
 
