@@ -16,7 +16,8 @@ test('Should save a pokemon', async () => {
 });
 
 test('Should get a pokemon by id', async () => {
-    const pokeById = await pokeService.getPokemonById({id: 1});
+    const id = 1;
+    const pokeById = await pokeService.getPokemonById(id);
 
     expect(pokeById.id).toEqual(1);
 });

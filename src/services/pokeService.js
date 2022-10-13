@@ -17,5 +17,5 @@ exports.getPokemonById = (id) => {
 }
 
 exports.changePokemonById = (newPoke) => {
-     return pokeData.chancePokemonById(newPoke);
+     return pokeData.changePokemonById(newPoke);
 }
