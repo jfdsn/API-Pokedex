@@ -5,7 +5,7 @@ exports.getPokemon = () => {
 };
 
 exports.getPokemonById = (id) => {
-    return database.one('SELECT * FROM pokemon WHERE id = $1', [id]);
+    return database.oneOrNone('SELECT * FROM pokemon WHERE id = $1', [id]);
 };
 
 exports.savePokemon = (poke) => {
@@ -20,4 +20,8 @@ exports.changePokemonById = (newPoke) => {
 
 exports.deletePokemon = (id) => {
     return database.none('DELETE FROM pokemon WHERE id = $1', [id]);
+};
+
+exports.getPokemonByName = (nome) => {
+    return database.oneOrNone('SELECT * FROM pokemon WHERE nome = $1', [nome]);
 };

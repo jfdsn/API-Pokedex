@@ -4,18 +4,30 @@ exports.getPokemon = () => {
      return pokeData.getPokemon();   
 };
 
-exports.savePokemon = (poke) => {
+exports.getPokemonById = (id) => {
+     return pokeData.getPokemonById(id);
+};
+
+exports.savePokemon = async (poke) => {
+     const pokeExist = await pokeData.getPokemonByName(poke.nome);
+     
+     if(pokeExist.nome) throw new Error("O Pokemon já está registrado.");
+
      return pokeData.savePokemon(poke);
 };
 
-exports.deletePokemon = (id) => {
-     return pokeData.deletePokemon(id);
-}
+exports.changePokemonById = async (newPoke) => {
+     const idExist = await pokeData.getPokemonById(newPoke.id);
+     
+     if(!idExist) throw new Error("Id incorreto ou inexistente.");
 
-exports.getPokemonById = (id) => {
-     return pokeData.getPokemonById(id);
-}
-
-exports.changePokemonById = (newPoke) => {
      return pokeData.changePokemonById(newPoke);
-}
+};
+
+exports.deletePokemon = async (id) => {
+     const idExist = await pokeData.getPokemonById(id);
+     
+     if(!idExist) throw new Error("Id incorreto ou inexistente.");
+
+     return pokeData.deletePokemon(id);
+};
