@@ -4,7 +4,11 @@ exports.getPokemon = () => {
      return pokeData.getPokemon();   
 };
 
-exports.getPokemonById = (id) => {
+exports.getPokemonById = async (id) => {
+     const idExist = await pokeData.getPokemonById(id);
+
+     if(!idExist) throw new Error ("Id incorreto ou inexistente.");
+     
      return pokeData.getPokemonById(id);
 };
 
@@ -17,17 +21,11 @@ exports.savePokemon = async (poke) => {
 };
 
 exports.changePokemonById = async (newPoke) => {
-     const idExist = await pokeData.getPokemonById(newPoke.id);
-     
-     if(!idExist) throw new Error("Id incorreto ou inexistente.");
-
-     return pokeData.changePokemonById(newPoke);
+     await this.getPokemonById(newPoke.id);
+     return pokeData.changePokemonById(newPoke);  
 };
 
 exports.deletePokemon = async (id) => {
-     const idExist = await pokeData.getPokemonById(id);
-     
-     if(!idExist) throw new Error("Id incorreto ou inexistente.");
-
+     await this.getPokemonById(id);
      return pokeData.deletePokemon(id);
 };
